@@ -1,0 +1,87 @@
+﻿@model Test.Application.DTOs.EventDTO
+
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Event</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <div id="divTimeout" class="alert alert-danger" hidden>            
+        </div> 
+
+        @{
+            if (TempData["Notification"] != null)
+            {
+                <div class="alert alert-info">
+                    @TempData["Notification"]
+                </div>
+            }
+            else if (TempData["ConcurrencyError"] != null)
+            {
+                <div class="alert alert-warning">
+                    @TempData["ConcurrencyError"]
+                </div>
+            }
+        }
+
+        <div id="lockInformation"></div>
+        <form asp-action="Edit" id="editForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input id="eventId" type="hidden" asp-for="Id" />
+            <input id="userName" type="hidden" value="@User.Identity.Name" />
+            <input id="ownsTheLock" type="hidden" value=@Model.OwnsTheLock />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+
+                <textarea asp-for="Description" class="form-control" rows="10" text-wrap:normal" type="text"></textarea>
+
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input id="saveButton" type="submit" value="Save" class="btn btn-primary" />
+                <input id="cancelButton" type="submit" name="cancel" value="Cancel" class="btn btn-secondary" />
+                <input id="notifyButton" type="submit" name="notify" value="Notify me!" class="btn btn-warning" hidden />
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+
+@section Scripts {
+    <script src="~/js/signalr/editSignalr.js"></script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+<script src="~/js/edit.js"></script>
+@{
+    if (TempData["ConcurrencyError"] != null)
+    {
+        <script>
+            disableForm();
+        </script>
+    }
+    if (TempData["Notification"] != null)
+    {
+        <script>
+            hideNotifyButton();
+        </script>
+    }
+}
+

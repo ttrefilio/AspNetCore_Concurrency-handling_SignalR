@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200728062906_ChangesOnTheLockTable.cs" />
+    <Compile Remove="Migrations\20200728062906_ChangesOnTheLockTable.Designer.cs" />
+    <Compile Remove="Migrations\20200728064119_ChangesOnTheLockTable2.cs" />
+    <Compile Remove="Migrations\20200728064119_ChangesOnTheLockTable2.Designer.cs" />
+    <Compile Remove="Migrations\20200728064752_ChangesOnTheLockTable.cs" />
+    <Compile Remove="Migrations\20200728064752_ChangesOnTheLockTable.Designer.cs" />
+    <Compile Remove="Migrations\20200728064958_ChangesOnTheLockTable.cs" />
+    <Compile Remove="Migrations\20200728064958_ChangesOnTheLockTable.Designer.cs" />
+    <Compile Remove="Migrations\20200728132943_test.cs" />
+    <Compile Remove="Migrations\20200728132943_test.Designer.cs" />
+    <Compile Remove="Migrations\20200806101841_ChangeLockTable.cs" />
+    <Compile Remove="Migrations\20200806101841_ChangeLockTable.Designer.cs" />
+    <Compile Remove="Migrations\20200806111948_ChangeLockTable.cs" />
+    <Compile Remove="Migrations\20200806111948_ChangeLockTable.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="3.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Test.Business\Test.Business.csproj" />
+  </ItemGroup>
+
+</Project>
