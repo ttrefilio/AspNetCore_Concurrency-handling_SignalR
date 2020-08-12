@@ -9,7 +9,7 @@ namespace Test.Data.Concurrency
 {
     public class LockRepository
     {
-        private readonly int _lockExpirySeconds = 15;
+        private readonly int _lockExpirySeconds = 20;
 
         private readonly AppDbContext _dbContext;
 
