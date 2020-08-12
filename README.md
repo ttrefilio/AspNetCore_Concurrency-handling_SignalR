@@ -3,6 +3,7 @@
 In this project I have implemented a pessimistic lock on a local database and with the real-time comunication provided by SignalR, inform the users when a lock is released.
 
 Instalation:
+
 1 - On the Package Manager Console, select Test.Application as the default project and run the command: update-database -context IdentyContext
     This will create the local database as well as the tables for the user authentication.
     
