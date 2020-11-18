@@ -1,6 +1,6 @@
 # AspNetCore_Concurrency-handling_SignalR
 
-In this project I have implemented a pessimistic lock on a local database and with the real-time comunication provided by SignalR, inform the users when a lock is released.
+In this project I have implemented a pessimistic lock on a local database using the real-time comunication provided by SignalR to inform users when a lock is released.
 
 Instalation:
 
@@ -14,4 +14,4 @@ Instalation:
 
 4 - Even though authorization was not implemented in this demonstration, it's importantant to authenticate the users to make use of the lock.
 
-5 - On the a lock expiry time of 20 seconds is set Test.Data/Repositories/LockRepository.cs
+5 - On the repository class (Test.Data/Repositories/LockRepository.cs) a lock expiry time of 20 seconds is set. Feel free to change it as you please.
